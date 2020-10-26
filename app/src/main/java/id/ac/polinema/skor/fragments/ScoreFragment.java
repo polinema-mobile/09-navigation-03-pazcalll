@@ -5,11 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import id.ac.polinema.skor.R;
+import id.ac.polinema.skor.databinding.FragmentScoreBinding;
 import id.ac.polinema.skor.models.GoalScorer;
 
 /**
@@ -38,7 +41,11 @@ public class ScoreFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		return null;
+		FragmentScoreBinding binding = DataBindingUtil
+				.inflate(inflater, R.layout.fragment_score, container, false);
+		binding.setHomeGoalScorerList(homeGoalScorerList);
+		binding.setAwayGoalScorerList(awayGoalScorerList);
+		return binding.getRoot();
 	}
 
 	public void onAddHomeClick(View view) {

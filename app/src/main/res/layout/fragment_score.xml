@@ -5,7 +5,15 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	>
 	<data>
-
+		<variable
+			name="homeGoalScorerList"
+			type="java.util.List" />
+		<variable
+			name="awayGoalScorerList"
+			type="java.util.List" />
+		<variable
+			name="fragment"
+			type="id.ac.polinema.skor.fragments.ScoreFragment" />
 	</data>
 
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -71,6 +79,7 @@
 			android:id="@+id/text_home_score"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:text="@{String.valueOf(homeGoalScorerList.size())}"
 			android:textSize="64sp"
 			app:layout_constraintBottom_toTopOf="@+id/guideline"
 			app:layout_constraintEnd_toEndOf="parent"

@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+	<data>
+		<variable
+			name="goal"
+			type="id.ac.polinema.skor.models.GoalScorer" />
+		<variable
+			name="score"
+			type="id.ac.polinema.skor.models.GoalScorer" />
+	</data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,3 +27,4 @@
 		app:layout_constraintTop_toTopOf="parent"
 		app:navGraph="@navigation/navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

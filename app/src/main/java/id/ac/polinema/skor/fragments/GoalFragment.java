@@ -1,12 +1,17 @@
 package id.ac.polinema.skor.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import id.ac.polinema.skor.R;
+import id.ac.polinema.skor.databinding.FragmentGoalBinding;
 import id.ac.polinema.skor.models.GoalScorer;
 
 /**
@@ -16,6 +21,7 @@ public class GoalFragment extends Fragment {
 
 	private String requestKey;
 	private GoalScorer goalScorer;
+	FragmentGoalBinding binding;
 
 	public GoalFragment() {
 		// Required empty public constructor
@@ -30,14 +36,21 @@ public class GoalFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		return null;
+		binding = DataBindingUtil.inflate(inflater, R.layout.fragment_goal, null, false);
+		View view = binding.getRoot();
+		binding.setGoal(goalScorer);
+		return view;
 	}
 
 	public void onSaveClicked(View view) {
-
+		Bundle bundle = new Bundle();
+		goalScorer.setName(binding.inputName.getText().toString());
+		goalScorer.setMinute(Integer.parseInt(binding.inputMinute.getText().toString()));
+		bundle.putParcelable(ScoreFragment.SCORER_KEY, goalScorer);
+		Navigation.findNavController(view).navigateUp();
 	}
 
 	public void onCancelClicked(View view) {
-
+		Navigation.findNavController(view).navigateUp();
 	}
 }
